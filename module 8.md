@@ -65,7 +65,8 @@ int main() {
 
 
 ### Output:
-![Uploading image.png…]()
+<img width="471" height="166" alt="Screenshot 2026-02-13 135438" src="https://github.com/user-attachments/assets/097bba41-05de-4895-8c8a-b5add225343d" />
+
 
 
 
@@ -294,8 +295,9 @@ int main()
 
 
 ### Output:
-![Uploading image.png…]()
 
+
+<img width="541" height="370" alt="Screenshot 2026-02-13 135828" src="https://github.com/user-attachments/assets/fa7918c2-d062-47c5-9503-3fbc443ac523" />
 
 
 
@@ -350,7 +352,8 @@ int main() {
 
 ### Output:
 
-![Uploading image.png…]()
+<img width="512" height="160" alt="Screenshot 2026-02-13 135934" src="https://github.com/user-attachments/assets/287680de-ebf4-4078-a809-8671425ef535" />
+
 
 
 

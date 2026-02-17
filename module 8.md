@@ -159,71 +159,52 @@ Free the memory allocated for each string in s Free the memory allocated for s
 #include <stdlib.h>
 #include <string.h>
 
-void swap(char *x, char *y) 
-{
-    char temp = *x;
-    *x = *y;
-    *y = temp;
+int next_permutation(int n, char **s){
+    int k = -1;
+    for (int i = 0; i < n-1; i++){
+        if (strcmp(s[i], s[i+1]) < 0)
+            k = i;
+    }
+    
+    if (k == -1) return 0; 
+
+    int l = -1;
+    for (int i = k+1; i < n; i++) {
+        if (strcmp(s[k], s[i]) < 0)
+            l = i;
+    }
+
+    char *tmp = s[k];
+    s[k] = s[l];
+    s[l] = tmp;
+
+    int i = k+1, j = n-1;
+    while (i < j) {
+        tmp = s[i];
+        s[i++] = s[j];
+        s[j--] = tmp;
+    }
+
+    return 1; 
 }
 
-
-void sortString(char *str) {
-    int i, j, len = strlen(str);
-    for (i = 0; i < len - 1; i++) {
-        for (j = i + 1; j < len; j++) {
-            if (str[i] > str[j]) {
-                swap(&str[i], &str[j]);
-            }
-        }
-    }
-}
-
-int nextPermutation(char *str) {
-    int i = strlen(str) - 2;
-    while (i >= 0 && str[i] >= str[i + 1]) i--;
-
-    if (i < 0) return 0;
-
-    int j = strlen(str) - 1;
-    while (str[j] <= str[i]) j--;
-
-    swap(&str[i], &str[j]);
-
-    int start = i + 1, end = strlen(str) - 1;
-    while (start < end) {
-        swap(&str[start], &str[end]);
-        start++;
-        end--;
-    }
-    return 1;
-}
-
-int main() {
-    char **s;
-    int n, i;
-    scanf("%d", &n);
-    s = (char **)malloc(n * sizeof(char *));
-    for (i = 0; i < n; i++) {
-        s[i] = (char *)malloc(100 * sizeof(char));
-    }
-
-    for (i = 0; i < n; i++) {
-        scanf("%s", s[i]);
-    }
-
-    for (i = 0; i < n; i++) {
-        sortString(s[i]);
-        printf("Permutations of %s:\n", s[i]);
-        do {
-            printf("%s\n", s[i]);
-        } while (nextPermutation(s[i]));
-    }
-    for (i = 0; i < n; i++) {
-        free(s[i]);
-    }
-    free(s);
-
-    return 0;
+int main(){
+	char **s;
+	int n;
+	scanf("%d", &n);
+	s = calloc(n, sizeof(char*));
+	for (int i = 0; i < n; i++){
+		s[i] = calloc(11, sizeof(char));
+		scanf("%s", s[i]);
+	}do{
+		for (int i = 0; i < n; i++)
+			printf("%s%c", s[i], i == n - 1 ? '\n' : ' ');
+	} while (next_permutation(n, s));
+	
+	for (int i = 0; i < n; i++)
+		free(s[i]);
+	free(s);
+	return 0;
 }
 
 
@@ -234,7 +215,8 @@ int main() {
 
 
 ### Output:
-<img width="541" height="370" alt="image" src="https://github.com/user-attachments/assets/654f989c-2955-4361-8dfb-eec15154ae72" />
+<img width="782" height="316" alt="image" src="https://github.com/user-attachments/assets/3d3d9e86-3bb2-450a-8776-ca6036c76694" />
+
 
 
 

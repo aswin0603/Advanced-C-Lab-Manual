@@ -1,5 +1,3 @@
-<img width="441" height="218" alt="image" src="https://github.com/user-attachments/assets/0c2b8b1d-2d6f-4bd6-8ea0-de3d78c38b97" />
-
 ## EXP NO:21 C PROGRAM TO CREATE A FUNCTION TO FIND THE GREATEST NUMBER
 ### Aim:
 To write a C program to create a function to find the greatest number
